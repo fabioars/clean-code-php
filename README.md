@@ -12,21 +12,21 @@
      * [Evite mapa mental](#evite-mapa-mental)
      * [Não coloque contexto desnecessário](#não-coloque-contexto-desnecessário)
      * [Use argumentos padrão ao invéis de condicionais](#use-argumentos-padrão-ao-invéis-de-condicionais)
-  3. [Functions](#functions)
-     * [Function arguments (2 or fewer ideally)](#function-arguments-2-or-fewer-ideally)
-     * [Functions should do one thing](#functions-should-do-one-thing)
-     * [Function names should say what they do](#function-names-should-say-what-they-do)
-     * [Functions should only be one level of abstraction](#functions-should-only-be-one-level-of-abstraction)
-     * [Don't use flags as function parameters](#dont-use-flags-as-function-parameters)
-     * [Avoid Side Effects](#avoid-side-effects)
-     * [Don't write to global functions](#dont-write-to-global-functions)
-     * [Don't use a Singleton pattern](#dont-use-a-singleton-pattern)
-     * [Encapsulate conditionals](#encapsulate-conditionals)
-     * [Avoid negative conditionals](#avoid-negative-conditionals)
-     * [Avoid conditionals](#avoid-conditionals)
-     * [Avoid type-checking (part 1)](#avoid-type-checking-part-1)
-     * [Avoid type-checking (part 2)](#avoid-type-checking-part-2)
-     * [Remove dead code](#remove-dead-code)
+  3. [Funções](#funções)
+     * [Parâmetros de funções (2 ou menos)](#parâmetros-de-funções-2-ou-menos)
+     * [Funções devem fazer apenas uma coisa](#funções-devem-fazer-apenas-uma-coisa)
+     * [Nome de função deve dizer o que ela faz](#nome-de-função-deve-dizer-o-que-ela-faz)
+     * [Funções devem ter apenas um nível de abstração](#funções-devem-ter-apenas-um-nível-de-abstração)
+     * [Não use flags como parâmetros](#não-use-flags-como-parâmetros)
+     * [Evite efeito colateral](#evite-efeito-colateral)
+     * [Não escreva funções globais](#não-escreva-funções-globais)
+     * [Não use o padrão Singleton](#não-use-o-padrão-singleton)
+     * [Encapsule condicionais](#encapsule-condicionais)
+     * [Evite condicionais negativas](#evite-condicionais-negativas)
+     * [Evite condicionais](#evite-condicionais)
+     * [Evite verificação de tipo (parte 1)](#evite-verificação-de-tipo-parte-1)
+     * [Evite verificação de tipo (parte 2)](#evite-verificação-de-tipo-parte-2)
+     * [Remova código morto](#remova-código-morto)
   4. [Objects and Data Structures](#objects-and-data-structures)
      * [Use getters and setters](#use-getters-and-setters)
      * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
@@ -289,9 +289,9 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.')
 
 **[⬆ voltar para o topo](#sumário)**
 
-## Functions
+## Funções
 
-### Function arguments (2 or fewer ideally)
+### Parâmetros de funções (2 ou menos)
 
 Limiting the amount of function parameters is incredibly important because it makes 
 testing your function easier. Having more than three leads to a combinatorial explosion 
@@ -336,7 +336,7 @@ function createMenu(MenuConfig $config)
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Functions should do one thing
+### Funções devem fazer apenas uma coisa
 
 This is by far the most important rule in software engineering. When functions do more 
 than one thing, they are harder to compose, test, and reason about. When you can isolate 
@@ -381,7 +381,7 @@ function isClientActive($client)
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Function names should say what they do
+### Nome de função deve dizer o que ela faz
 
 **Ruim:**
 
@@ -421,7 +421,7 @@ $message->send();
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Functions should only be one level of abstraction
+### Funções devem ter apenas um nível de abstração
 
 When you have more than one level of abstraction your function is usually
 doing too much. Splitting up functions leads to reusability and easier
@@ -559,7 +559,7 @@ class BetterJSAlternative
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Don't use flags as function parameters
+### Não use flags como parâmetros
 
 Flags tell your user that this function does more than one thing. Functions should 
 do one thing. Split out your functions if they are following different code paths 
@@ -594,7 +594,7 @@ function createTempFile($name)
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Avoid Side Effects
+### Evite efeito colateral
 
 A function produces a side effect if it does anything other than take a value in and 
 return another value or values. A side effect could be writing to a file, modifying 
@@ -646,7 +646,7 @@ var_dump($newName); // ['Ryan', 'McDermott'];
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Don't write to global functions
+### Não escreva funções globais
 
 Polluting globals is a bad practice in many languages because you could clash with another 
 library and the user of your API would be none-the-wiser until they get an exception in 
@@ -696,7 +696,7 @@ And now you must use instance of `Configuration` in your application.
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Don't use a Singleton pattern
+### Não use o padrão Singleton
 
 Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
  1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
@@ -757,7 +757,7 @@ And now you must use instance of `DBConnection` in your application.
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Encapsulate conditionals
+### Encapsule condicionais
 
 **Ruim:**
 
@@ -777,7 +777,7 @@ if ($article->isPublished()) {
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Avoid negative conditionals
+### Evite condicionais negativas
 
 **Ruim:**
 
@@ -808,7 +808,7 @@ if (isDOMNodePresent($node)) {
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Avoid conditionals
+### Evite condicionais
 
 This seems like an impossible task. Upon first hearing this, most people say,
 "how am I supposed to do anything without an `if` statement?" The answer is that
@@ -883,7 +883,7 @@ class Cessna implements Airplane
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Avoid type-checking (part 1)
+### Evite verificação de tipo (parte 1)
 
 PHP is untyped, which means your functions can take any type of argument.
 Sometimes you are bitten by this freedom and it becomes tempting to do
@@ -914,7 +914,7 @@ function travelToTexas(Traveler $vehicle)
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Avoid type-checking (part 2)
+### Evite verificação de tipo (parte 2)
 
 If you are working with basic primitive values like strings, integers, and arrays,
 and you use PHP 7+ and you can't use polymorphism but you still feel the need to
@@ -950,7 +950,7 @@ function combine(int $val1, int $val2)
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Remove dead code
+### Remova código morto
 
 Dead code is just as bad as duplicate code. There's no reason to keep it in
 your codebase. If it's not being called, get rid of it! It will still be safe

@@ -70,7 +70,7 @@ $ymdstr = $moment->format('y-m-d');
 $currentDate = $moment->format('y-m-d');
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Use o mesmo vocabulário para o mesmo tipo de variável
 
@@ -89,7 +89,7 @@ getUserProfile();
 getUser();
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Use nomes pesquisáveis (parte 1)
 
@@ -138,7 +138,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Use nomes explicatos
 
@@ -177,7 +177,7 @@ preg_match($cityZipCodeRegex, $address, $matches);
 saveCityZipCode($matches['city'], $matches['zipCode']);
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Evite mapa mental
 
@@ -216,7 +216,7 @@ foreach ($locations as $location) {
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Não coloque contexto desnecessário
 
@@ -249,7 +249,7 @@ class Car
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Use argumentos padrão ao invéis de condicionais
 
@@ -287,7 +287,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.')
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ## Functions
 
@@ -334,7 +334,7 @@ function createMenu(MenuConfig $config)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Functions should do one thing
 
@@ -379,7 +379,7 @@ function isClientActive($client)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Function names should say what they do
 
@@ -419,7 +419,7 @@ $message = new Email(...);
 $message->send();
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Functions should only be one level of abstraction
 
@@ -557,7 +557,7 @@ class BetterJSAlternative
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Don't use flags as function parameters
 
@@ -592,7 +592,7 @@ function createTempFile($name)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Avoid Side Effects
 
@@ -644,7 +644,7 @@ var_dump($name); // 'Ryan McDermott';
 var_dump($newName); // ['Ryan', 'McDermott'];
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Don't write to global functions
 
@@ -694,7 +694,7 @@ $configuration = new Configuration([
 
 And now you must use instance of `Configuration` in your application.
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Don't use a Singleton pattern
 
@@ -755,7 +755,7 @@ $connection = new DBConnection($dsn);
 
 And now you must use instance of `DBConnection` in your application.
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Encapsulate conditionals
 
@@ -775,7 +775,7 @@ if ($article->isPublished()) {
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Avoid negative conditionals
 
@@ -806,7 +806,7 @@ if (isDOMNodePresent($node)) {
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Avoid conditionals
 
@@ -881,7 +881,7 @@ class Cessna implements Airplane
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Avoid type-checking (part 1)
 
@@ -912,7 +912,7 @@ function travelToTexas(Traveler $vehicle)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Avoid type-checking (part 2)
 
@@ -948,7 +948,7 @@ function combine(int $val1, int $val2)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Remove dead code
 
@@ -985,7 +985,7 @@ $request = requestModule($requestUrl);
 inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 
 ## Objects and Data Structures
@@ -1062,7 +1062,7 @@ $bankAccount->withdrawBalance($shoesPrice);
 $balance = $bankAccount->getBalance();
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Make objects have private/protected members
 
@@ -1105,7 +1105,7 @@ $employee = new Employee('John Doe');
 echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ## Classes
 
@@ -1184,7 +1184,7 @@ class UserSettings
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Open/Closed Principle (OCP)
 
@@ -1298,7 +1298,7 @@ class HttpRequester
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Liskov Substitution Principle (LSP)
 
@@ -1439,7 +1439,7 @@ $shapes = [new Rectangle(), new Rectangle(), new Square()];
 renderLargeRectangles($shapes);
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Interface Segregation Principle (ISP)
 
@@ -1530,7 +1530,7 @@ class Robot implements Workable
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Dependency Inversion Principle (DIP)
 
@@ -1622,7 +1622,7 @@ class Manager
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Use method chaining
 
@@ -1715,7 +1715,7 @@ $car = (new Car())
   ->dump();
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ### Prefer composition over inheritance
 
@@ -1811,7 +1811,7 @@ class Employee
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ## Don’t repeat yourself (DRY)
 
@@ -1911,7 +1911,7 @@ function showList($employees)
 }
 ```
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**
 
 ## Translations
 
@@ -1921,4 +1921,4 @@ This is also available in other languages:
    * [yangweijie/clean-code-php](https://github.com/yangweijie/clean-code-php)
    * [php-cpm/clean-code-php](https://github.com/php-cpm/clean-code-php)
 
-**[⬆ back to top](#sumário)**
+**[⬆ voltar para o topo](#sumário)**

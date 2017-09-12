@@ -27,19 +27,19 @@
      * [Evite verificação de tipo (parte 1)](#evite-verificação-de-tipo-parte-1)
      * [Evite verificação de tipo (parte 2)](#evite-verificação-de-tipo-parte-2)
      * [Remova código morto](#remova-código-morto)
-  4. [Objects and Data Structures](#objects-and-data-structures)
-     * [Use getters and setters](#use-getters-and-setters)
-     * [Make objects have private/protected members](#make-objects-have-privateprotected-members)
+  4. [Objetos e estrutura de dados](#objetos-e-estrutura-de-dados)
+     * [Use getters e setters](#use-getters-e-setters)
+     * [Faça objetos terem membros private/protected](#Faça objetos terem membros private/protected)
   5. [Classes](#classes)
-     * [S: Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
-     * [O: Open/Closed Principle (OCP)](#openclosed-principle-ocp)
-     * [L: Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
-     * [I: Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
-     * [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
+     * [S: Princípio da Responsabilidade Única (SRP)](#princípio-da-responsabilidade-única-srp)
+     * [O: Princípio do Aberto/Fechado (OCP)](#princípio-do-aberto-fechado-ocp)
+     * [L: Princício da Substituição de Liskov (LSP)](#princício-da-substituição-de-liskov-lsp)
+     * [I: Princípio da Segregação de interface (ISP)](#princípio-da-segregação-de-interface-isp)
+     * [D: Princípio da Injessão de dependências (DIP)](#princípio-da-injessão-de-dependências-dip)
      * [Use method chaining](#use-method-chaining)
-     * [Prefer composition over inheritance](#prefer-composition-over-inheritance)
-  6. [Don’t repeat yourself (DRY)](#dont-repeat-yourself-dry)
-  7. [Translations](#translations)
+     * [Prefira composição do que herança](#prefira-composição-do-que-herança)
+  6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo)
+  7. [Traduções](#traduções)
 
 ## Introdução
 
@@ -700,7 +700,7 @@ And now you must use instance of `Configuration` in your application.
 
 Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
  1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
- 2. They violate the [single responsibility principle](#single-responsibility-principle-srp): by virtue of the fact that **they control their own creation and lifecycle**.
+ 2. They violate the [Princípio da Responsabilidade Única](#single-responsibility-principle-srp): by virtue of the fact that **they control their own creation and lifecycle**.
  3. They inherently cause code to be tightly [coupled](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). This makes faking them out under **test rather difficult** in many cases.
  4. They carry state around for the lifetime of the application. Another hit to testing since **you can end up with a situation where tests need to be ordered** which is a big no for unit tests. Why? Because each unit test should be independent from the other.
 
@@ -988,9 +988,9 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 **[⬆ voltar para o topo](#sumário)**
 
 
-## Objects and Data Structures
+## Objetos e estrutura de dados
 
-### Use getters and setters
+### Use getters e setters
 
 In PHP you can set `public`, `protected` and `private` keywords for methods. 
 Using it, you can control properties modification on an object. 
@@ -1004,7 +1004,7 @@ to look up and change every accessor in your codebase.
 * You can lazy load your object's properties, let's say getting it from a
 server.
 
-Additionally, this is part of Open/Closed principle, from object-oriented 
+Additionally, this is part of Princípio do Aberto/Fechado, from object-oriented 
 design principles.
 
 **Ruim:**
@@ -1064,7 +1064,7 @@ $balance = $bankAccount->getBalance();
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Make objects have private/protected members
+### Faça objetos terem membros private/protected
 
 **Ruim:**
 
@@ -1109,7 +1109,7 @@ echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 
 ## Classes
 
-### Single Responsibility Principle (SRP)
+### Princípio da Responsabilidade Única (SRP)
 
 As stated in Clean Code, "There should never be more than one reason for a class
 to change". It's tempting to jam-pack a class with a lot of functionality, like
@@ -1186,7 +1186,7 @@ class UserSettings
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Open/Closed Principle (OCP)
+### Princípio do Aberto/Fechado (OCP)
 
 As stated by Bertrand Meyer, "software entities (classes, modules, functions,
 etc.) should be open for extension, but closed for modification." What does that
@@ -1300,7 +1300,7 @@ class HttpRequester
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Liskov Substitution Principle (LSP)
+### Princício da Substituição de Liskov (LSP)
 
 This is a scary term for a very simple concept. It's formally defined as "If S
 is a subtype of T, then objects of type T may be replaced with objects of type S
@@ -1441,7 +1441,7 @@ renderLargeRectangles($shapes);
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Interface Segregation Principle (ISP)
+### Princípio da Segregação de interface (ISP)
 
 ISP states that "Clients should not be forced to depend upon interfaces that
 they do not use." 
@@ -1532,7 +1532,7 @@ class Robot implements Workable
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Dependency Inversion Principle (DIP)
+### Princípio da Injessão de dependências (DIP)
 
 This principle states two essential things:
 1. High-level modules should not depend on low-level modules. Both should
@@ -1717,10 +1717,10 @@ $car = (new Car())
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Prefer composition over inheritance
+### Prefira composição do que herança
 
 As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
-you should prefer composition over inheritance where you can. There are lots of
+you should Prefira composição do que herança where you can. There are lots of
 good reasons to use inheritance and lots of good reasons to use composition.
 The main point for this maxim is that if your mind instinctively goes for
 inheritance, try to think if composition could model your problem better. In some
@@ -1813,7 +1813,7 @@ class Employee
 
 **[⬆ voltar para o topo](#sumário)**
 
-## Don’t repeat yourself (DRY)
+## Não repita você mesmo (DRY)
 
 Try to observe the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle.
 
@@ -1913,7 +1913,7 @@ function showList($employees)
 
 **[⬆ voltar para o topo](#sumário)**
 
-## Translations
+## Traduções
 
 This is also available in other languages:
 

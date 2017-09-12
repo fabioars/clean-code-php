@@ -293,14 +293,14 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.')
 
 ### Parâmetros de funções (2 ou menos)
 
-Limiting the amount of function parameters is incredibly important because it makes 
-testing your function easier. Having more than three leads to a combinatorial explosion 
-where you have to test tons of different cases with each separate argument.
+Limitando a quantidade de parâmetros em uma função é importante porque é possivel testar
+a função de forma mais fácil. Tento mais de três conduz em uma explosão combinacional
+onde você tem vários casos de teste de diferentes parâmetros separados.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided. 
-Anything more than that should be consolidated. Usually, if you have more than two 
-arguments then your function is trying to do too much. In cases where it's not, most 
-of the time a higher-level object will suffice as an argument.
+Zero parâmetros é o caso ideal. Um ou dois parâmetros é ok, e três ou mais deve ser evitado.
+Qualquer coisa mais deve ser consolidado. Frequentimente, se você tem mais de dois parâmetros
+quer dizer que sua função está tentando fazer coisas demais. Em casos onde não está, 
+você deve usar um objeto higher-level para suprir os parâmetros.
 
 **Ruim:**
 

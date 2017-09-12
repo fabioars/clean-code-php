@@ -648,11 +648,11 @@ var_dump($newName); // ['Ryan', 'McDermott'];
 
 ### Não escreva funções globais
 
-Polluting globals is a bad practice in many languages because you could clash with another 
-library and the user of your API would be none-the-wiser until they get an exception in 
-production. Let's think about an example: what if you wanted to have configuration array. 
-You could write global function like `config()`, but it could clash with another library 
-that tried to do the same thing.
+Criar globais é uma má prática em várias liguagens porque você pode colidir com outra 
+biblioteca e não será claro para o usuário de sua API até que ele tenha uma exceção em
+produção. Vamos pensar em um exemplo: se você quiser um array de configuração.
+Vode poderia escrever uma função global como `config()`, mas pode colidir com outra biblioteca
+que tentou fazer a mesma coisa.
 
 **Ruim:**
 
@@ -684,7 +684,7 @@ class Configuration
 }
 ```
 
-Load configuration and create instance of `Configuration` class 
+Carrega a configuração e crie uma instância de da classe `Configuration`
 
 ```php
 $configuration = new Configuration([
@@ -692,7 +692,7 @@ $configuration = new Configuration([
 ]);
 ```
 
-And now you must use instance of `Configuration` in your application.
+Agora você deve usar a instância de `Configuration` na sua aplicação.
 
 **[⬆ voltar para o topo](#sumário)**
 

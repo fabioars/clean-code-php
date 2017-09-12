@@ -338,11 +338,11 @@ function createMenu(MenuConfig $config)
 
 ### Funções devem fazer apenas uma coisa
 
-This is by far the most important rule in software engineering. When functions do more 
-than one thing, they are harder to compose, test, and reason about. When you can isolate 
-a function to just one action, they can be refactored easily and your code will read much 
-cleaner. If you take nothing else away from this guide other than this, you'll be ahead 
-of many developers.
+Esse é de longe a regra mais importante na engenharia de software. Quando funções fazem
+mais do que uma coisa, elas são difíceis de utilizar, testar e racionalizar. Quando você
+pode isolar uma função para apenas uma coisa, elas podem ser refatoradas facilmente e seu 
+código será lido com muito mais claresa. Se você não pegar nada desse guia, além disso,
+você vai está à frente de muitos desenvolvedores.
 
 **Ruim:**
 ```php
@@ -423,9 +423,9 @@ $message->send();
 
 ### Funções devem ter apenas um nível de abstração
 
-When you have more than one level of abstraction your function is usually
-doing too much. Splitting up functions leads to reusability and easier
-testing.
+Quando você mais de um nível de abstração, sua função deve está fazendo
+coisas demais. Separar as funções leva a reusabilidade e testes de forma
+mais fácil.
 
 **Ruim:**
 
@@ -457,7 +457,7 @@ function parseBetterJSAlternative($code)
 
 **Bad too:**
 
-We have carried out some of the functionality, but the `parseBetterJSAlternative()` function is still very complex and not testable.
+Cuidamos de algumas funcionalidades, mas a função `parseBetterJSAlternative()`  ainda é muito complexa e não testavel.
 
 ```php
 function tokenize($code)
@@ -499,7 +499,7 @@ function parseBetterJSAlternative($code)
 
 **Bom:**
 
-The best solution is move out the dependencies of `parseBetterJSAlternative()` function.
+A melhor solução é retirar as dependencias da função `parseBetterJSAlternative()`.
 
 ```php
 class Tokenizer
@@ -561,9 +561,9 @@ class BetterJSAlternative
 
 ### Não use flags como parâmetros
 
-Flags tell your user that this function does more than one thing. Functions should 
-do one thing. Split out your functions if they are following different code paths 
-based on a boolean.
+Flags dizem para seu usuário que essa função faz mais de uma coisa. Funções devem
+fazer apenas uma coisa. Divida suas funções se elas estão seguindo diferentes
+diretórios baseado em um boleano.
 
 **Ruim:**
 
@@ -596,19 +596,19 @@ function createTempFile($name)
 
 ### Evite efeito colateral
 
-A function produces a side effect if it does anything other than take a value in and 
-return another value or values. A side effect could be writing to a file, modifying 
-some global variable, or accidentally wiring all your money to a stranger.
+Uma função produz um efeito colateral se ela faz mais do que pegar um valor e retornar
+outro ou outros. Um efeito colateral pode ser, escrever em um arquivio, modificar
+uma variável global, ou acidentalmente mandar todo seu dinheiro pra um estranho.
 
-Now, you do need to have side effects in a program on occasion. Like the previous 
-example, you might need to write to a file. What you want to do is to centralize where 
-you are doing this. Don't have several functions and classes that write to a particular 
-file. Have one service that does it. One and only one.
+Agora, você pode ter efeitos colaterais em uma determinada situação. Como no exemplo
+anterior, você pode precisar escrever num arquivo. O que você quer fazer é centralizar
+onde você tá fazendo isso. Não tenha várias funções ou classes que escrevem em um
+arquivo particular. Tenha um serviço que faça isso. Um e apenas um.
 
-The main point is to avoid common pitfalls like sharing state between objects without
-any structure, using mutable data types that can be written to by anything, and not 
-centralizing where your side effects occur. If you can do this, you will be happier 
-than the vast majority of other programmers.
+O ponto principal é evitar armadilhas comuns como compartilhar um estado entre objetos
+sem qualquer estrutua, usando dados mutáveis que podem ser escritos por qualquer coisa,
+e não centralizando onde os efeitos colaterais irão ocorrer. Se você pode fazer isso,
+você ficará mais feliz do que a marioria dos outros programadores.
 
 **Ruim:**
 

@@ -811,14 +811,14 @@ if (isDOMNodePresent($node)) {
 
 ### Evite condicionais
 
-This seems like an impossible task. Upon first hearing this, most people say,
-"how am I supposed to do anything without an `if` statement?" The answer is that
-you can use polymorphism to achieve the same task in many cases. The second
-question is usually, "well that's great but why would I want to do that?" The
-answer is a previous clean code concept we learned: a function should only do
-one thing. When you have classes and functions that have `if` statements, you
-are telling your user that your function does more than one thing. Remember,
-just do one thing.
+Essa parece ser uma tarefa impossível. A primeira coisa que as pessoas dizem
+quando ouvem isso é "como eu poderia fazer qualquer coisa sem um `if`?" A
+resposta é que você pode usar polimorfismo para chegar no mesmo resultado em
+muitos casos. A segunda pergunta é, "Bom, isso é legal, mas por que eu faria 
+isso?" A resposta é um outro conceito de código limpo que nós aprendemos:
+Uma função deve fazer apenas uma coisa. Quando você tem classes e funções com
+`if`, você está dizendo que sua função faz mais de uma coisa. Lembre-se,
+só uma coisa.
 
 **Ruim:**
 

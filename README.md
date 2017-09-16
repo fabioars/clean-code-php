@@ -31,7 +31,7 @@
      * [Use getters e setters](#use-getters-e-setters)
      * [Faça objetos terem membros private/protected](#Faça objetos terem membros private/protected)
   5. [Classes](#classes)
-     * [S: Princípio da Responsabilidade Única (SRP)](#princípio-da-responsabilidade-única-srp)
+     * [S: Princípio da Responsabilidade Única (SRP)](#princípio-da-responsabilidade-Única-srp)
      * [O: Princípio do Aberto/Fechado (OCP)](#princípio-do-aberto-fechado-ocp)
      * [L: Princício da Substituição de Liskov (LSP)](#princício-da-substituição-de-liskov-lsp)
      * [I: Princípio da Segregação de interface (ISP)](#princípio-da-segregação-de-interface-isp)
@@ -698,13 +698,14 @@ Agora você deve usar a instância de `Configuration` na sua aplicação.
 
 ### Não use o padrão Singleton
 
-Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
- 1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
- 2. They violate the [Princípio da Responsabilidade Única](#single-responsibility-principle-srp): by virtue of the fact that **they control their own creation and lifecycle**.
- 3. They inherently cause code to be tightly [coupled](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). This makes faking them out under **test rather difficult** in many cases.
- 4. They carry state around for the lifetime of the application. Another hit to testing since **you can end up with a situation where tests need to be ordered** which is a big no for unit tests. Why? Because each unit test should be independent from the other.
+Singleton é um [anti-padrão](https://en.wikipedia.org/wiki/Singleton_pattern). Interpretado de 
+Brian Button:
+ 1. Eles geralmente são usados como umas **instância global**, por que isso é tão ruim? Porque **você esconde as dependencias** da aplicação no seu código,em vez de expor eles através de interfaces. Fazendo alguma coisa global pra evitar que o [código cheire mal](https://en.wikipedia.org/wiki/Code_smell).
+ 2. Ele viola o [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-Única-srp): pelo fato de **controlar sua prórpia crianção e ciclo de vida**.
+ 3. Eles inerentemente fazem com que o código seja muito [acoplado](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). Isso faz com que eles resultem em falsos resultados em **testes** em muitos casos.
+ 4. Eles carregam o estado por todo o tempo de vida da aplicação. Um bateria de testes **para simular uma situação específica os testes precisam ser ordenados** deixando o propósito dos testes unitarios de lado. Por quê? Porque cada teste unitário deve ser independente um do outro.
 
-There is also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
+Também tem algumas ideias muitos boas do [Misko Hevery](http://misko.hevery.com/about/) falando sobre o [centro do problema](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
 **Ruim:**
 
@@ -747,13 +748,13 @@ class DBConnection
 }
 ```
 
-Create instance of `DBConnection` class and configure it with [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
+Cirar uma instancia da classe `DBConnection` e configuar com [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
 
 ```php
 $connection = new DBConnection($dsn);
 ```
 
-And now you must use instance of `DBConnection` in your application.
+E agora você deve usar a instância de `DBConnection` na sua aplicação.
 
 **[⬆ voltar para o topo](#sumário)**
 

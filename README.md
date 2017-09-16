@@ -29,13 +29,13 @@
      * [Remova código morto](#remova-código-morto)
   4. [Objetos e estrutura de dados](#objetos-e-estrutura-de-dados)
      * [Use getters e setters](#use-getters-e-setters)
-     * [Faça objetos terem membros private/protected](#faça-objetos-terem-membros-private-protected)
+     * [Faça objetos terem membros private/protected](#faça-objetos-terem-membros-privateprotected)
   5. [Classes](#classes)
      * [S: Princípio da Responsabilidade Única (SRP)](#princípio-da-responsabilidade-Única-srp)
-     * [O: Princípio do Aberto/Fechado (OCP)](#princípio-do-aberto-fechado-ocp)
+     * [O: Princípio do Aberto/Fechado (OCP)](#princípio-do-abertofechado-ocp)
      * [L: Princício da Substituição de Liskov (LSP)](#princício-da-substituição-de-liskov-lsp)
      * [I: Princípio da Segregação de interface (ISP)](#princípio-da-segregação-de-interface-isp)
-     * [D: Princípio da Injessão de dependências (DIP)](#princípio-da-injessão-de-dependências-dip)
+     * [D: Princípio da Injeção de dependências (DIP)](#princípio-da-injeção-de-dependências-dip)
      * [Use method chaining](#use-method-chaining)
      * [Prefira composição do que herança](#prefira-composição-do-que-herança)
   6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo)
@@ -1532,7 +1532,7 @@ class Robot implements Workable
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Princípio da Injessão de dependências (DIP)
+### Princípio da Injeção de dependências (DIP)
 
 This principle states two essential things:
 1. High-level modules should not depend on low-level modules. Both should

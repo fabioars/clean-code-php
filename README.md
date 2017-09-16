@@ -29,7 +29,7 @@
      * [Remova código morto](#remova-código-morto)
   4. [Objetos e estrutura de dados](#objetos-e-estrutura-de-dados)
      * [Use getters e setters](#use-getters-e-setters)
-     * [Faça objetos terem membros private/protected](#Faça objetos terem membros private/protected)
+     * [Faça objetos terem membros private/protected](#faça-objetos-terem-membros-private-protected)
   5. [Classes](#classes)
      * [S: Princípio da Responsabilidade Única (SRP)](#princípio-da-responsabilidade-Única-srp)
      * [O: Princípio do Aberto/Fechado (OCP)](#princípio-do-aberto-fechado-ocp)
@@ -886,10 +886,10 @@ class Cessna implements Airplane
 
 ### Evite verificação de tipo (parte 1)
 
-PHP is untyped, which means your functions can take any type of argument.
-Sometimes you are bitten by this freedom and it becomes tempting to do
-type-checking in your functions. There are many ways to avoid having to do this.
-The first thing to consider is consistent APIs.
+PHP não é fortemente tipado, isso quer izer, que suas funções podem receber
+qualquer tipo de argumento. Algumas vezes você é fisgado pela liberdade
+e isso se tornar tentador fazer verificação de tipo nas suas funções.
+Há várias maneiras de evitar fazer isso. A primeira é, APIs consistentes
 
 **Ruim:**
 
@@ -917,6 +917,9 @@ function travelToTexas(Traveler $vehicle)
 
 ### Evite verificação de tipo (parte 2)
 
+Se vocÊ estiver trabalhando com tipos primitivos  como strings, interios e arrays,
+e você usa PHP 7+ e você não pode usar polimorfismo, mas você ainda sente a necessidade
+de verificar os tipos, você deve considerar a [declaração de tipo](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)
 If you are working with basic primitive values like strings, integers, and arrays,
 and you use PHP 7+ and you can't use polymorphism but you still feel the need to
 type-check, you should consider

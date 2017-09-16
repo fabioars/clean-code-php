@@ -920,15 +920,11 @@ function travelToTexas(Traveler $vehicle)
 Se vocÊ estiver trabalhando com tipos primitivos  como strings, interios e arrays,
 e você usa PHP 7+ e você não pode usar polimorfismo, mas você ainda sente a necessidade
 de verificar os tipos, você deve considerar a [declaração de tipo](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)
-If you are working with basic primitive values like strings, integers, and arrays,
-and you use PHP 7+ and you can't use polymorphism but you still feel the need to
-type-check, you should consider
-[type declaration](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)
-or strict mode. It provides you with static typing on top of standard PHP syntax.
-The problem with manually type-checking is that doing it will require so much
-extra verbiage that the faux "type-safety" you get doesn't make up for the lost
-readability. Keep your PHP clean, write good tests, and have good code reviews.
-Otherwise, do all of that but with PHP strict type declaration or strict mode.
+oy modo estrito. Isso permite que você use tipos estáticos por padrão na sintáxe da 
+linguagem PHP. O problema com verificação de tipo manual é que isso requer muito mais
+código escrito para ter os tipos validados, e você perde a legibilidade do código.
+Mantenha seu PHP limpo, escreva bons testes, e tenha boas revisões. Caso contrário, 
+faça tudo como o modo estrito do PHP.
 
 **Ruim:**
 
@@ -956,9 +952,9 @@ function combine(int $val1, int $val2)
 
 ### Remova código morto
 
-Dead code is just as bad as duplicate code. There's no reason to keep it in
-your codebase. If it's not being called, get rid of it! It will still be safe
-in your version history if you still need it.
+Código morto é tão ruim qunato duplicar o código. Não há motivos para manter
+ele no seu projeto. Se ele não está sendo chamado, se livre dele! Ele ainda 
+está seguro no histórico de versão quando você precisar dele.
 
 **Ruim:**
 

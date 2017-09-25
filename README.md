@@ -94,7 +94,7 @@ getUser();
 ### Use nomes pesquisáveis (parte 1)
 
 Nós vamos ler mais código do que escrever. É importante que o código que nós escrevemos é
-lergível e pesquisável. Por *não* nomear variáveis que seja sgnificativo para o entendimento
+legível e pesquisável. Por *não* nomear variáveis que sejam significativas para o entendimento
 do nosso programa, nós machucamos nossos leitores.
 Faça variáveis com nomes pesquisáveis.
 
@@ -140,7 +140,7 @@ if ($user->access & User::ACCESS_UPDATE) {
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Use nomes explicatos
+### Use nomes explicativos
 
 **Ruim:**
 
@@ -251,7 +251,7 @@ class Car
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Use argumentos padrão ao invéis de condicionais
+### Use argumentos padrão ao invés de condicionais
 
 **Nada mal:**
 Isso não é nada mal porque `$breweryName` pode ser `NULL`.
@@ -294,11 +294,11 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.')
 ### Parâmetros de funções (2 ou menos)
 
 Limitando a quantidade de parâmetros em uma função é importante porque é possivel testar
-a função de forma mais fácil. Tento mais de três conduz em uma explosão combinacional
+a função de forma mais fácil. Tendo mais de três conduz em uma explosão combinacional
 onde você tem vários casos de teste de diferentes parâmetros separados.
 
 Zero parâmetros é o caso ideal. Um ou dois parâmetros é ok, e três ou mais deve ser evitado.
-Qualquer coisa mais deve ser consolidado. Frequentimente, se você tem mais de dois parâmetros
+Qualquer coisa mais deve ser consolidado. Frequentemente, se você tem mais de dois parâmetros
 quer dizer que sua função está tentando fazer coisas demais. Em casos onde não está, 
 você deve usar um objeto higher-level para suprir os parâmetros.
 
@@ -341,7 +341,7 @@ function createMenu(MenuConfig $config)
 Esse é de longe a regra mais importante na engenharia de software. Quando funções fazem
 mais do que uma coisa, elas são difíceis de utilizar, testar e racionalizar. Quando você
 pode isolar uma função para apenas uma coisa, elas podem ser refatoradas facilmente e seu 
-código será lido com muito mais claresa. Se você não pegar nada desse guia, além disso,
+código será lido com muito mais clareza. Se você não pegar nada desse guia, além disso,
 você vai está à frente de muitos desenvolvedores.
 
 **Ruim:**
@@ -423,7 +423,7 @@ $message->send();
 
 ### Funções devem ter apenas um nível de abstração
 
-Quando você mais de um nível de abstração, sua função deve está fazendo
+Quando você mais de um nível de abstração, sua função deve estar fazendo
 coisas demais. Separar as funções leva a reusabilidade e testes de forma
 mais fácil.
 
@@ -597,18 +597,18 @@ function createTempFile($name)
 ### Evite efeito colateral
 
 Uma função produz um efeito colateral se ela faz mais do que pegar um valor e retornar
-outro ou outros. Um efeito colateral pode ser, escrever em um arquivio, modificar
+outro ou outros. Um efeito colateral pode ser, escrever em um arquivo, modificar
 uma variável global, ou acidentalmente mandar todo seu dinheiro pra um estranho.
 
 Agora, você pode ter efeitos colaterais em uma determinada situação. Como no exemplo
-anterior, você pode precisar escrever num arquivo. O que você quer fazer é centralizar
-onde você tá fazendo isso. Não tenha várias funções ou classes que escrevem em um
+anterior, você pode precisar escrever em um arquivo. O que você quer fazer é centralizar
+onde você está fazendo isso. Não tenha várias funções ou classes que escrevem em um
 arquivo particular. Tenha um serviço que faça isso. Um e apenas um.
 
 O ponto principal é evitar armadilhas comuns como compartilhar um estado entre objetos
-sem qualquer estrutua, usando dados mutáveis que podem ser escritos por qualquer coisa,
+sem qualquer estrutura, usando dados mutáveis que podem ser escritos por qualquer coisa,
 e não centralizando onde os efeitos colaterais irão ocorrer. Se você pode fazer isso,
-você ficará mais feliz do que a marioria dos outros programadores.
+você ficará mais feliz do que a maioria dos outros programadores.
 
 **Ruim:**
 
@@ -648,7 +648,7 @@ var_dump($newName); // ['Ryan', 'McDermott'];
 
 ### Não escreva funções globais
 
-Criar globais é uma má prática em várias liguagens porque você pode colidir com outra 
+Criar globais é uma má prática em várias linguagens porque você pode colidir com outra 
 biblioteca e não será claro para o usuário de sua API até que ele tenha uma exceção em
 produção. Vamos pensar em um exemplo: se você quiser um array de configuração.
 Vode poderia escrever uma função global como `config()`, mas pode colidir com outra biblioteca
@@ -684,7 +684,7 @@ class Configuration
 }
 ```
 
-Carrega a configuração e crie uma instância de da classe `Configuration`
+Carrega a configuração e crie uma instância da classe `Configuration`
 
 ```php
 $configuration = new Configuration([
@@ -700,10 +700,10 @@ Agora você deve usar a instância de `Configuration` na sua aplicação.
 
 Singleton é um [anti-padrão](https://en.wikipedia.org/wiki/Singleton_pattern). Interpretado de 
 Brian Button:
- 1. Eles geralmente são usados como umas **instância global**, por que isso é tão ruim? Porque **você esconde as dependencias** da aplicação no seu código,em vez de expor eles através de interfaces. Fazendo alguma coisa global pra evitar que o [código cheire mal](https://en.wikipedia.org/wiki/Code_smell).
+ 1. Eles geralmente são usados como uma **instância global**, por que isso é tão ruim? Porque **você esconde as dependencias** da aplicação no seu código, em vez de expor eles através de interfaces. Fazendo alguma coisa global pra evitar que o [código cheire mal](https://en.wikipedia.org/wiki/Code_smell).
  2. Ele viola o [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-Única-srp): pelo fato de **controlar sua prórpia crianção e ciclo de vida**.
  3. Eles inerentemente fazem com que o código seja muito [acoplado](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). Isso faz com que eles resultem em falsos resultados em **testes** em muitos casos.
- 4. Eles carregam o estado por todo o tempo de vida da aplicação. Um bateria de testes **para simular uma situação específica os testes precisam ser ordenados** deixando o propósito dos testes unitarios de lado. Por quê? Porque cada teste unitário deve ser independente um do outro.
+ 4. Eles carregam o estado por todo o tempo de vida da aplicação. Um bateria de testes **para simular uma situação específica os testes precisam ser ordenados** deixando o propósito dos testes unitários de lado. Por quê? Porque cada teste unitário deve ser independente um do outro.
 
 Também tem algumas ideias muitos boas do [Misko Hevery](http://misko.hevery.com/about/) falando sobre o [centro do problema](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
@@ -748,7 +748,7 @@ class DBConnection
 }
 ```
 
-Cirar uma instancia da classe `DBConnection` e configuar com [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
+Criar uma instância da classe `DBConnection` e configuar com [DSN](http://php.net/manual/en/pdo.construct.php#refsect1-pdo.construct-parameters).
 
 ```php
 $connection = new DBConnection($dsn);
@@ -886,7 +886,7 @@ class Cessna implements Airplane
 
 ### Evite verificação de tipo (parte 1)
 
-PHP não é fortemente tipado, isso quer izer, que suas funções podem receber
+PHP não é fortemente tipado, isso quer dizer, que suas funções podem receber
 qualquer tipo de argumento. Algumas vezes você é fisgado pela liberdade
 e isso se tornar tentador fazer verificação de tipo nas suas funções.
 Há várias maneiras de evitar fazer isso. A primeira é, APIs consistentes
@@ -917,10 +917,10 @@ function travelToTexas(Traveler $vehicle)
 
 ### Evite verificação de tipo (parte 2)
 
-Se vocÊ estiver trabalhando com tipos primitivos  como strings, interios e arrays,
+Se você estiver trabalhando com tipos primitivos como strings, inteiros e arrays,
 e você usa PHP 7+ e você não pode usar polimorfismo, mas você ainda sente a necessidade
 de verificar os tipos, você deve considerar a [declaração de tipo](http://php.net/manual/en/functions.arguments.php#functions.arguments.type-declaration)
-oy modo estrito. Isso permite que você use tipos estáticos por padrão na sintáxe da 
+ou modo estrito. Isso permite que você use tipos estáticos por padrão na sintáxe da 
 linguagem PHP. O problema com verificação de tipo manual é que isso requer muito mais
 código escrito para ter os tipos validados, e você perde a legibilidade do código.
 Mantenha seu PHP limpo, escreva bons testes, e tenha boas revisões. Caso contrário, 
@@ -952,8 +952,8 @@ function combine(int $val1, int $val2)
 
 ### Remova código morto
 
-Código morto é tão ruim qunato duplicar o código. Não há motivos para manter
-ele no seu projeto. Se ele não está sendo chamado, se livre dele! Ele ainda 
+Código morto é tão ruim quanto duplicar o código. Não há motivos para manter
+ele no seu projeto. Se ele não está sendo chamado, livre-se dele! Ele ainda 
 está seguro no histórico de versão quando você precisar dele.
 
 **Ruim:**

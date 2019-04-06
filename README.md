@@ -423,7 +423,7 @@ $message->send();
 
 ### Funções devem ter apenas um nível de abstração
 
-Quando você mais de um nível de abstração, sua função deve estar fazendo
+Quando você possui mais de um nível de abstração, sua função deve estar fazendo
 coisas demais. Separar as funções leva a reusabilidade e testes de forma
 mais fácil.
 

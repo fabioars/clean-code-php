@@ -1917,8 +1917,21 @@ function showList($employees)
 
 This is also available in other languages:
 
- * ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese:**
-   * [yangweijie/clean-code-php](https://github.com/yangweijie/clean-code-php)
+ * :cn: **Chinese:**
    * [php-cpm/clean-code-php](https://github.com/php-cpm/clean-code-php)
+ * :ru: **Russian:**
+   * [peter-gribanov/clean-code-php](https://github.com/peter-gribanov/clean-code-php)
+ * :es: **Spanish:**
+   * [fikoborquez/clean-code-php](https://github.com/fikoborquez/clean-code-php)
+ * :thailand: **Thai:**
+   * [panuwizzle/clean-code-php](https://github.com/panuwizzle/clean-code-php)
+ * :fr: **French:**
+   * [errorname/clean-code-php](https://github.com/errorname/clean-code-php)
+ * :vietnam: **Vietnamese**
+   * [viethuongdev/clean-code-php](https://github.com/viethuongdev/clean-code-php)
+ * :kr: **Korean:**
+   * [yujineeee/clean-code-php](https://github.com/yujineeee/clean-code-php)
+ * :tr: **Turkish:**
+   * [anilozmen/clean-code-php](https://github.com/anilozmen/clean-code-php)   
 
 **[⬆ voltar para o topo](#sumário)**

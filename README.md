@@ -8,7 +8,7 @@
      * [Use o mesmo vocabulário para o mesmo tipo de variável](#use-o-mesmo-vocabulário-para-o-mesmo-tipo-de-variável)
      * [Use nomes pesquisáveis (parte 1)](#use-nomes-pesquisáveis-parte-1)
      * [Use nomes pesquisáveis (parte 2)](#use-nomes-pesquisáveis-parte-2)
-     * [Use nomes explicatos](#use-nomes-explicatos)
+     * [Use nomes explicativos](#use-nomes-explicativos)
      * [Evite mapa mental](#evite-mapa-mental)
      * [Não coloque contexto desnecessário](#não-coloque-contexto-desnecessário)
      * [Use argumentos padrão ao invéis de condicionais](#use-argumentos-padrão-ao-invéis-de-condicionais)

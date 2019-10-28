@@ -36,7 +36,7 @@
      * [L: Princício da Substituição de Liskov (LSP)](#princício-da-substituição-de-liskov-lsp)
      * [I: Princípio da Segregação de interface (ISP)](#princípio-da-segregação-de-interface-isp)
      * [D: Princípio da Injeção de dependências (DIP)](#princípio-da-injeção-de-dependências-dip)
-     * [Use method chaining](#use-method-chaining)
+     * [Use encadeamento de método](#use-encadeamento-de-método)
      * [Prefira composição do que herança](#prefira-composição-do-que-herança)
   6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo)
   7. [Traduções](#traduções)

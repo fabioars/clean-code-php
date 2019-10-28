@@ -36,7 +36,7 @@
      * [L: Princício da Substituição de Liskov (LSP)](#princício-da-substituição-de-liskov-lsp)
      * [I: Princípio da Segregação de interface (ISP)](#princípio-da-segregação-de-interface-isp)
      * [D: Princípio da Injeção de dependências (DIP)](#princípio-da-injeção-de-dependências-dip)
-     * [Use method chaining](#use-method-chaining)
+     * [Use encadeamento de método](#use-encadeamento-de-método)
      * [Prefira composição do que herança](#prefira-composição-do-que-herança)
   6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo)
   7. [Traduções](#traduções)
@@ -45,11 +45,11 @@
 
 O livro Software engineering principles, de Robert C. Martin
 [*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
-adaptado para PHP. Isso não é um guia de estilo. É um guia para podução de software em PHP legível,
+adaptado para PHP. Isso não é um guia de estilo. É um guia para produção de software em PHP legível,
 reusável, e refatorável.
 
 Nem todos os princípios aqui contidos devem ser rigorosamente seguidos, e muito menos serão 
-universalmente acordado. Estas são orientações e nada mais, mas são codificadas em muitos
+universalmente acordados. Estas são orientações e nada mais, mas são codificadas em muitos
 anos de experiência coletiva pelos autores do *Clean Code*.
 
 Inspirado em [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript)
@@ -93,7 +93,7 @@ getUser();
 
 ### Use nomes pesquisáveis (parte 1)
 
-Nós vamos ler mais código do que escrever. É importante que o código que nós escrevemos é
+Nós vamos ler mais código do que escrever. É importante que o código que nós escrevemos seja
 legível e pesquisável. Por *não* nomear variáveis que sejam significativas para o entendimento
 do nosso programa, nós machucamos nossos leitores.
 Faça variáveis com nomes pesquisáveis.
@@ -129,7 +129,7 @@ class User
 {
     const ACCESS_READ = 1;
     const ACCESS_CREATE = 2;
-    const ACCESS_UPDATE = 4;
+    const ACCESS_UPDATE = 4;
     const ACCESS_DELETE = 8;
 }
 
@@ -167,7 +167,7 @@ saveCityZipCode($city, $zipCode);
 
 **Bom:**
 
-Diminui a dependencia do regex nomeando os subpadrões.
+Diminui a dependência do regex nomeando os subpadrões.
 
 ```php
 $address = 'One Infinite Loop, Cupertino 95014';
@@ -499,7 +499,7 @@ function parseBetterJSAlternative($code)
 
 **Bom:**
 
-A melhor solução é retirar as dependencias da função `parseBetterJSAlternative()`.
+A melhor solução é retirar as dependências da função `parseBetterJSAlternative()`.
 
 ```php
 class Tokenizer
@@ -648,7 +648,7 @@ var_dump($newName); // ['Ryan', 'McDermott'];
 
 ### Não escreva funções globais
 
-Criar globais é uma má prática em várias linguagens porque você pode colidir com outra 
+Criar funções globais é uma má prática em várias linguagens porque você pode colidir com outra 
 biblioteca e não será claro para o usuário de sua API até que ele tenha uma exceção em
 produção. Vamos pensar em um exemplo: se você quiser um array de configuração.
 Vode poderia escrever uma função global como `config()`, mas pode colidir com outra biblioteca
@@ -700,8 +700,8 @@ Agora você deve usar a instância de `Configuration` na sua aplicação.
 
 Singleton é um [anti-padrão](https://en.wikipedia.org/wiki/Singleton_pattern). Interpretado de 
 Brian Button:
- 1. Eles geralmente são usados como uma **instância global**, por que isso é tão ruim? Porque **você esconde as dependencias** da aplicação no seu código, em vez de expor eles através de interfaces. Fazendo alguma coisa global pra evitar que o [código cheire mal](https://en.wikipedia.org/wiki/Code_smell).
- 2. Ele viola o [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-Única-srp): pelo fato de **controlar sua prórpia crianção e ciclo de vida**.
+ 1. Eles geralmente são usados como uma **instância global**, por que isso é tão ruim? Porque **você esconde as dependências** da aplicação no seu código, em vez de expor elas através de interfaces. Fazendo alguma coisa global pra evitar que o [código cheire mal](https://en.wikipedia.org/wiki/Code_smell).
+ 2. Ele viola o [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-Única-srp): pelo fato de **controlar sua prórpia criação e ciclo de vida**.
  3. Eles inerentemente fazem com que o código seja muito [acoplado](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). Isso faz com que eles resultem em falsos resultados em **testes** em muitos casos.
  4. Eles carregam o estado por todo o tempo de vida da aplicação. Um bateria de testes **para simular uma situação específica os testes precisam ser ordenados** deixando o propósito dos testes unitários de lado. Por quê? Porque cada teste unitário deve ser independente um do outro.
 
@@ -992,20 +992,18 @@ inventoryTracker('apples', $request, 'www.inventory-awesome.io');
 
 ### Use getters e setters
 
-In PHP you can set `public`, `protected` and `private` keywords for methods. 
-Using it, you can control properties modification on an object. 
+No PHP você pode usar as palavras chave `public`, `protected` e `private` nos 
+métodos. Fazendo isso você pode controlar a mudança de propriedades em um objeto.
 
-* When you want to do more beyond getting an object property, you don't have
-to look up and change every accessor in your codebase.
-* Makes adding validation simple when doing a `set`.
-* Encapsulates the internal representation.
-* Easy to add logging and error handling when getting and setting.
-* Inheriting this class, you can override default functionality.
-* You can lazy load your object's properties, let's say getting it from a
-server.
+* Quando você deseja fazer mais do que obter uma propriedade de objeto, não 
+precisa procurar e alterar todos os acessadores em sua base de código.
+* Facilita a adição de validação ao fazer um `set`.
+* Encapsula a representação interna.
+* Fácil de adicionar logs e manipular erros ao obter e editar propriedades.
+* Herdando essa classe, você pode substituir a funcionalidade padrão.
 
-Additionally, this is part of Princípio do Aberto/Fechado, from object-oriented 
-design principles.
+Além disso, isso faz parte do Princípio do Aberto / Fechado, a partir dos 
+princípios de design orientado a objetos.
 
 **Ruim:**
 
@@ -1111,14 +1109,14 @@ echo 'Employee name: '.$employee->getName(); // Employee name: John Doe
 
 ### Princípio da Responsabilidade Única (SRP)
 
-As stated in Clean Code, "There should never be more than one reason for a class
-to change". It's tempting to jam-pack a class with a lot of functionality, like
-when you can only take one suitcase on your flight. The issue with this is
-that your class won't be conceptually cohesive and it will give it many reasons
-to change. Minimizing the amount of times you need to change a class is important.
-It's important because if too much functionality is in one class and you modify a piece of it,
-it can be difficult to understand how that will affect other dependent modules in
-your codebase.
+De acordo com o *Clean Code*, "Nunca deve haver mais de um motivo para uma 
+classe mudar". É tentador empacotar uma classe com muitas funcionalidades, como 
+quando você só pode levar uma mala no seu voo. O problema disso é que sua 
+classe não será conceitualmente coesa e oferecerá muitos motivos para mudar. 
+Minimizar a quantidade de vezes que você precisa alterar uma classe é 
+importante. É importante porque, se houver muita funcionalidade em uma classe e 
+você modificar uma parte dela, pode ser difícil entender como isso afetará 
+outros módulos dependentes na sua base de código.
 
 **Ruim:**
 
@@ -1188,10 +1186,10 @@ class UserSettings
 
 ### Princípio do Aberto/Fechado (OCP)
 
-As stated by Bertrand Meyer, "software entities (classes, modules, functions,
-etc.) should be open for extension, but closed for modification." What does that
-mean though? This principle basically states that you should allow users to
-add new functionalities without changing existing code.
+Como afirma Bertrand Meyer, "as entidades de software (classes, módulos, funções
+ etc.) devem estar abertas para extensão, mas fechadas para modificação". O que 
+ isso significa? Esse princípio basicamente afirma que você deve permitir que 
+ os usuários adicionem novas funcionalidades sem alterar o código existente.
 
 **Ruim:**
 
@@ -1302,18 +1300,19 @@ class HttpRequester
 
 ### Princício da Substituição de Liskov (LSP)
 
-This is a scary term for a very simple concept. It's formally defined as "If S
-is a subtype of T, then objects of type T may be replaced with objects of type S
-(i.e., objects of type S may substitute objects of type T) without altering any
-of the desirable properties of that program (correctness, task performed,
-etc.)." That's an even scarier definition.
+Este é um termo assustador para um conceito muito simples. É formalmente 
+definido como "Se S é um subtipo de T, então objetos do tipo T podem ser 
+substituídos por objetos do tipo S (ou seja, objetos do tipo S podem 
+substituir objetos do tipo T) sem alterar nenhuma das propriedades desejáveis 
+desse programa. (correção, tarefa executada etc.) ". Essa é uma definição ainda 
+mais assustadora.
 
-The best explanation for this is if you have a parent class and a child class,
-then the base class and child class can be used interchangeably without getting
-incorrect results. This might still be confusing, so let's take a look at the
-classic Square-Rectangle example. Mathematically, a square is a rectangle, but
-if you model it using the "is-a" relationship via inheritance, you quickly
-get into trouble.
+A melhor explicação para isso é se você tiver uma classe pai e uma classe filho, 
+então a classe pai e a classe filho poderão ser usadas de forma intercambiável 
+sem obter resultados incorretos. Isso ainda pode ser confuso, então vamos dar 
+uma olhada no exemplo clássico do retângulo quadrado. Matematicamente, um 
+quadrado é um retângulo, mas se você o modelar usando o relacionamento "é-um" 
+por herança, você rapidamente terá problemas.
 
 **Ruim:**
 
@@ -1443,13 +1442,13 @@ renderLargeRectangles($shapes);
 
 ### Princípio da Segregação de interface (ISP)
 
-ISP states that "Clients should not be forced to depend upon interfaces that
-they do not use." 
+O ISP declara que "os clientes não devem ser forçados a depender das interfaces 
+que não usam".
 
-A good example to look at that demonstrates this principle is for
-classes that require large settings objects. Not requiring clients to setup
-huge amounts of options is beneficial, because most of the time they won't need
-all of the settings. Making them optional helps prevent having a "fat interface".
+Um bom exemplo para demonstrar esse princípio são classes que requerem objetos 
+de configurações grandes. Não é necessário exigir que os clientes configurem 
+grandes quantidades de opções, pois na maioria das vezes eles não precisam de 
+todas as configurações. Torná-los opcionais ajuda a evitar uma "interface gorda".
 
 **Ruim:**
 
@@ -1490,7 +1489,7 @@ class Robot implements Employee
 
 **Bom:**
 
-Not every worker is an employee, but every employee is an worker.
+Nem todo trabalhador é um funcionário, mas todo funcionário é um trabalhador.
 
 ```php
 interface Workable
@@ -1534,18 +1533,19 @@ class Robot implements Workable
 
 ### Princípio da Injeção de dependências (DIP)
 
-This principle states two essential things:
-1. High-level modules should not depend on low-level modules. Both should
-depend on abstractions.
-2. Abstractions should not depend upon details. Details should depend on
-abstractions.
+Este princípio afirma duas coisas essenciais:
+1. Os módulos de alto nível não devem depender dos módulos de baixo nível.
+Ambos devem depender de abstrações.
+2. As abstrações não devem depender de detalhes. Os detalhes devem depender de 
+abstrações.
 
-This can be hard to understand at first, but if you've worked with PHP frameworks (like Symfony), you've seen an implementation of this principle in the form of Dependency
-Injection (DI). While they are not identical concepts, DIP keeps high-level
-modules from knowing the details of its low-level modules and setting them up.
-It can accomplish this through DI. A huge benefit of this is that it reduces
-the coupling between modules. Coupling is a very bad development pattern because
-it makes your code hard to refactor.
+Isso pode ser difícil de entender no começo, mas se você trabalhou com estruturas 
+PHP (como o Symfony), viu uma implementação desse princípio na forma de Injeção 
+de Dependência (DI). Embora não sejam conceitos idênticos, o DIP impede que os 
+módulos de alto nível conheçam os detalhes de seus módulos de baixo nível e os 
+configurem. Isso pode ser feito através do DI. Um grande benefício disso é que 
+reduz o acoplamento entre os módulos. O acoplamento é um padrão de 
+desenvolvimento muito ruim, pois dificulta a refatoração do seu código.
 
 **Ruim:**
 
@@ -1624,13 +1624,13 @@ class Manager
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Use method chaining
+### Use encadeamento de método
 
-This pattern is very useful and commonly used in many libraries such
-as PHPUnit and Doctrine. It allows your code to be expressive, and less verbose.
-For that reason, use method chaining and take a look at how clean your code
-will be. In your class functions, simply use `return $this` at the end of every `set` function,
-and you can chain further class methods onto it.
+Esse padrão é muito útil e comumente usado em muitas bibliotecas, como PHPUnit 
+e Doctrine. Permite que seu código seja expressivo e menos detalhado. Por esse 
+motivo, use o encadeamento de métodos e veja como seu código ficará limpo. Em 
+suas funções de classe, basta usar `return $this` no final de cada função de 
+`set` definida, e você pode encadear outros métodos de classe nela.
 
 **Ruim:**
 
@@ -1719,22 +1719,23 @@ $car = (new Car())
 
 ### Prefira composição do que herança
 
-As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
-you should Prefira composição do que herança where you can. There are lots of
-good reasons to use inheritance and lots of good reasons to use composition.
-The main point for this maxim is that if your mind instinctively goes for
-inheritance, try to think if composition could model your problem better. In some
-cases it can.
+Como declarado de maneira famosa nos [*Padrões de Design](https://en.wikipedia.org/wiki/Design_Patterns) do *Gang of Four*, você deve preferir a composição do que a herança onde puder. 
+Existem muitas boas razões para usar a herança e muitas boas razões para usar a 
+composição. O ponto principal dessa máxima é que, se sua mente instintivamente 
+se dedicar à herança, tente pensar se a composição poderia modelar melhor o seu 
+problema. Em alguns casos, pode.
 
-You might be wondering then, "when should I use inheritance?" It
-depends on your problem at hand, but this is a decent list of when inheritance
-makes more sense than composition:
+Você deve estar se perguntando então: "quando devo usar a herança?" Depende do 
+seu problema em questão, mas esta é uma lista decente de quando a herança faz 
+mais sentido do que composição:
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a"
-relationship (Human->Animal vs. User->UserDetails).
-2. You can reuse code from the base classes (Humans can move like all animals).
-3. You want to make global changes to derived classes by changing a base class.
-(Change the caloric expenditure of all animals when they move).
+1. Sua herança representa um relacionamento "é-um" e não um relacionamento 
+"tem-um" (Humano-> Animal vs. Usuário-> Detalhes do Usuário).
+2. Você pode reutilizar o código das classes base (humanos podem se mover como 
+todos os animais).
+3. Você deseja fazer alterações globais nas classes derivadas alterando uma 
+classe base. (Altere o gasto calórico de todos os animais quando eles se 
+moverem).
 
 **Ruim:**
 
@@ -1815,28 +1816,28 @@ class Employee
 
 ## Não repita você mesmo (DRY)
 
-Try to observe the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle.
+Tente observar o princípio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
-Do your absolute best to avoid duplicate code. Duplicate code is bad because 
-it means that there's more than one place to alter something if you need to 
-change some logic.
+Faça o seu melhor para evitar código duplicado. O código duplicado é ruim 
+porque significa que há mais de um lugar para alterar algo se você precisar 
+alterar alguma lógica.
 
-Imagine if you run a restaurant and you keep track of your inventory: all your 
-tomatoes, onions, garlic, spices, etc. If you have multiple lists that
-you keep this on, then all have to be updated when you serve a dish with
-tomatoes in them. If you only have one list, there's only one place to update!
+Imagine se você administra um restaurante e monitora seu inventário: todos os 
+seus tomates, cebolas, alho, temperos etc. Se você tiver várias listas em que 
+mantém isso, tudo precisará ser atualizado quando você servir um prato com 
+tomates neles. Se você tiver apenas uma lista, há apenas um lugar para atualizar!
 
-Oftentimes you have duplicate code because you have two or more slightly
-different things, that share a lot in common, but their differences force you
-to have two or more separate functions that do much of the same things. Removing 
-duplicate code means creating an abstraction that can handle this set of different 
-things with just one function/module/class.
+Muitas vezes, você tem código duplicado porque possui duas ou mais coisas 
+ligeiramente diferentes, que compartilham muito em comum, mas as diferenças 
+delas o forçam a ter duas ou mais funções separadas que fazem as mesmas coisas. 
+Remover código duplicado significa criar uma abstração que pode lidar com esse 
+conjunto de coisas diferentes com apenas uma função / módulo / classe.
 
-Getting the abstraction right is critical, that's why you should follow the
-SOLID principles laid out in the [Classes](#classes) section. Bad abstractions can be
-worse than duplicate code, so be careful! Having said this, if you can make
-a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself 
-updating multiple places anytime you want to change one thing.
+Conseguir a abstração correta é fundamental, é por isso que você deve seguir os 
+princípios do SOLID estabelecidos na seção [Classes](#classes). Abstrações 
+ruins podem ser piores que código duplicado, portanto, tenha cuidado! Dito 
+isto, se você pode fazer uma boa abstração, faça-o! Não se repita; caso 
+contrário, você estará atualizando vários lugares sempre que quiser alterar uma coisa.
 
 **Ruim:**
 
@@ -1894,9 +1895,9 @@ function showList($employees)
 }
 ```
 
-**Very good:**
+**Muito bom:**
 
-It is better to use a compact version of the code.
+É melhor usar uma versão compacta do código.
 
 ```php
 function showList($employees)
@@ -1915,7 +1916,7 @@ function showList($employees)
 
 ## Traduções
 
-This is also available in other languages:
+Também disponível em outros idiomas:
 
  * :cn: **Chinese:**
    * [php-cpm/clean-code-php](https://github.com/php-cpm/clean-code-php)

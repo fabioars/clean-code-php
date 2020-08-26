@@ -38,7 +38,7 @@
      * [D: Princípio da Injeção de dependências (DIP)](#princípio-da-injeção-de-dependências-dip)
      * [Use encadeamento de método](#use-encadeamento-de-método)
      * [Prefira composição do que herança](#prefira-composição-do-que-herança)
-  6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo)
+  6. [Não repita você mesmo (DRY)](#não-repita-você-mesmo-dry)
   7. [Traduções](#traduções)
 
 ## Introdução

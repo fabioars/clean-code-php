@@ -11,7 +11,7 @@
      * [Use nomes explicativos](#use-nomes-explicativos)
      * [Evite mapa mental](#evite-mapa-mental)
      * [Não coloque contexto desnecessário](#não-coloque-contexto-desnecessário)
-     * [Use argumentos padrão ao invéis de condicionais](#use-argumentos-padrão-ao-invéis-de-condicionais)
+     * [Use argumentos padrão ao invés de condicionais](#use-argumentos-padrão-ao-invéis-de-condicionais)
   3. [Funções](#funções)
      * [Parâmetros de funções (2 ou menos)](#parâmetros-de-funções-2-ou-menos)
      * [Funções devem fazer apenas uma coisa](#funções-devem-fazer-apenas-uma-coisa)
@@ -181,8 +181,8 @@ saveCityZipCode($matches['city'], $matches['zipCode']);
 
 ### Evite mapa mental
 
-Não forece o leitor do seu código traduzir o que as variáveis significam.
-Explicito é melhor que implicito.
+Não force o leitor do seu código a traduzir o que as variáveis significam.
+Explicito é melhor que implícito.
 
 **Ruim:**
 
@@ -293,7 +293,7 @@ function createMicrobrewery(string $breweryName = 'Hipster Brew Co.')
 
 ### Parâmetros de funções (2 ou menos)
 
-Limitando a quantidade de parâmetros em uma função é importante porque é possivel testar
+Limitando a quantidade de parâmetros em uma função é importante porque é possível testar
 a função de forma mais fácil. Tendo mais de três conduz em uma explosão combinacional
 onde você tem vários casos de teste de diferentes parâmetros separados.
 
@@ -651,7 +651,7 @@ var_dump($newName); // ['Ryan', 'McDermott'];
 Criar funções globais é uma má prática em várias linguagens porque você pode colidir com outra 
 biblioteca e não será claro para o usuário de sua API até que ele tenha uma exceção em
 produção. Vamos pensar em um exemplo: se você quiser um array de configuração.
-Vode poderia escrever uma função global como `config()`, mas pode colidir com outra biblioteca
+Você poderia escrever uma função global como `config()`, mas pode colidir com outra biblioteca
 que tentou fazer a mesma coisa.
 
 **Ruim:**
@@ -1298,7 +1298,7 @@ class HttpRequester
 
 **[⬆ voltar para o topo](#sumário)**
 
-### Princício da Substituição de Liskov (LSP)
+### Princípio da Substituição de Liskov (LSP)
 
 Este é um termo assustador para um conceito muito simples. É formalmente 
 definido como "Se S é um subtipo de T, então objetos do tipo T podem ser 
